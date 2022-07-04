@@ -1,20 +1,9 @@
 .pop-up__input_type_name {
-  display: block;
-  border: none;
-  width: 358px;
   margin: 54px auto 0;
-  border-bottom: 1px solid rgba(0, 0, 0, .2);
-  outline: none;
-  font-family: "Inter", "Arial", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: #000000;
 }
 
 @media (max-width: 600px) {
   .pop-up__input_type_name {
-    width: 238px;
     margin: 75px auto 0;
     font-size: 14px;
     line-height: 17px;

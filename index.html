@@ -14,71 +14,74 @@
             </a>
         </header>
         <main class="main">
-            <div class="profile">
+            <section class="profile">
                 <img class="profile__avatar" src="./images/profile-image.jpg" alt="Фото профиля">
                 <div class="profile__info">
                     <div>
-                        <p class="profile__name">Жак-Ив Кусто</p>
+                        <!--это не лишний div, он размещает имя и профессию в колонку, плюс кнопку сбоку; без него не могу сделать-->
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
                         <p class="profile__job">Исследователь океана</p>
                     </div>
-                    <button class="profile__edit-btn"></button>
+                    <button type="button" class="profile__edit-btn"></button>
                 </div>
-                <button class="profile__add-btn"></button>
-            </div>
+                <button type="button" class="profile__add-btn"></button>
+            </section>
+            <section>
             <ul class="elements">
                 <li class="element">
                     <img class="element__image" src="./images/el-01.jpg" alt="Фото мест">
                     <div class="element__info">
                         <p class="element__text">Карачаевск</p>
-                        <button class="element__like-btn"></button>
+                        <button type="button" class="element__like-btn"></button>
                     </div>
                 </li>
                 <li class="element">
                     <img class="element__image" src="./images/el-02.jpg" alt="Фото мест">
                     <div class="element__info">
                         <p class="element__text">Гора Эльбрус</p>
-                        <button class="element__like-btn"></button>
+                        <button type="button" class="element__like-btn"></button>
                     </div>
                 </li>
                 <li class="element">
                     <img class="element__image" src="./images/el-03.jpg" alt="Фото мест">
                     <div class="element__info">
                         <p class="element__text">Домбай</p>
-                        <button class="element__like-btn"></button>
+                        <button type="button" class="element__like-btn"></button>
                     </div>
                 </li>
                 <li class="element">
                     <img class="element__image" src="./images/el-04.jpg" alt="Фото мест">
                     <div class="element__info">
                         <p class="element__text">Гора Эльбрус</p>
-                        <button class="element__like-btn"></button>
+                        <button type="button" class="element__like-btn"></button>
                     </div>
                 </li>
                 <li class="element">
                     <img class="element__image" src="./images/el-05.jpg" alt="Фото мест">
                     <div class="element__info">
                         <p class="element__text">Домбай</p>
-                        <button class="element__like-btn"></button>
+                        <button type="button" class="element__like-btn"></button>
                     </div>
                 </li>
                 <li class="element">
                     <img class="element__image" src="./images/el-06.jpg" alt="Фото мест">
                     <div class="element__info">
                         <p class="element__text">Карачаево-Черкессия</p>
-                        <button class="element__like-btn"></button>
+                        <button type="button" class="element__like-btn"></button>
                     </div>
                 </li>
             </ul>
+          </section>
         </main>
         <footer class="footer">
-            <h1 class="footer__text">&#169; 2022 Mesto Russia</h1>
+            <p class="footer__text">&#169; 2022 Mesto Russia</p>
         </footer>
         <!--Pop-up-->
         <section class="pop-up">
             <div class="pop-up__window">
-                <button class="pop-up__close-btn"></button>
+                <button type="button" class="pop-up__close-btn"></button>
                 <h2 class="pop-up__header">Редактировать профиль</h2>
-                <form class="pop-up__form">
+                <form class="pop-up__form" name="user">
                     <input
                         type="text"
                         class="pop-up__input pop-up__input_type_name"
@@ -91,7 +94,7 @@
                         name="job"
                         placeholder="Ваша работа?"
                     >
-                    <button type="submit" class="pop-up__input pop-up__input_type_submit-profile">Сохранить</button>
+                    <button type="submit" class="pop-up__submit-profile">Сохранить</button>
                 </form>
             </div>
         </section>

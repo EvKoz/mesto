@@ -5,7 +5,7 @@ const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 const newName = document.querySelector('.pop-up__input_type_name');
 const newJob = document.querySelector('.pop-up__input_type_job');
-const saveUserButton = document.querySelector('.pop-up__input_type_submit-profile');
+const saveUserButton = document.querySelector('.pop-up__submit-profile');
 
 function editUser() {
   popupElement.classList.toggle('pop-up_active');

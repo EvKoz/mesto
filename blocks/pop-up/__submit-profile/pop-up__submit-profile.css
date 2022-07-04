@@ -1,26 +1,30 @@
-.pop-up__input_type_submit-profile {
+.pop-up__submit-profile {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 1);
   display: block;
   margin: 48px auto 0;
   width: 358px;
   height: 50px;
-  font-family: 'Inter';
+  font-family: "Inter", "Arial", sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   text-align: center;
   color: #FFFFFF;
+  border-radius: 2px;
+  border: none;
 }
 
-.pop-up__input_type_submit-profile:hover {
+.pop-up__submit-profile:hover {
   opacity: 0.6;
 }
 
 @media (max-width: 600px) {
-  .pop-up__input_type_submit-profile {
+  .pop-up__submit-profile {
     margin: 45px auto 0;
     width: 238px;
     height: 46px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }
