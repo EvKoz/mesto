@@ -1,0 +1,7 @@
+.header__link {
+  height: 24.4px;
+}
+
+.header__link:hover {
+  opacity: 0.6;
+}

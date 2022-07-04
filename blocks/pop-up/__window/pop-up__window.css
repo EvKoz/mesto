@@ -1,0 +1,18 @@
+.pop-up__window {
+  width: 430px;
+  height: 330px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  position: absolute;
+  top: calc(50% - 165px);
+  left: calc(50% - 215px);
+}
+
+@media (max-width: 600px) {
+  .pop-up__window {
+    width: 282px;
+    height: 322px;
+    top: calc(50% - 161px);
+  left: calc(50% - 141px);
+  }
+}

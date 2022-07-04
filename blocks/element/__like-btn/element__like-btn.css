@@ -1,0 +1,17 @@
+.element__like-btn {
+  background-image: url("../../../images/el-like.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  height: 19px;
+  width: 22px;
+  display: flex;
+  flex-basis: 25px;
+  align-self: center;
+}
+
+.element__like-btn:hover {
+  opacity: 0.6;
+}
