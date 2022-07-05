@@ -5,7 +5,5 @@
 @media (max-width: 600px) {
   .pop-up__input_type_name {
     margin: 75px auto 0;
-    font-size: 14px;
-    line-height: 17px;
   }
 }
