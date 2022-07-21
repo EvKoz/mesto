@@ -9,7 +9,7 @@
   padding: 0;
   list-style-type: none;
   justify-content: center;
-}
+    }
 
 @media (max-width: 600px) {
   .elements{

@@ -1,0 +1,9 @@
+.pop-up__input_type_title{
+  margin: 54px auto 0;
+}
+
+@media (max-width: 600px) {
+  .pop-up__input_type_title{
+    margin: 75px auto 0;
+  }
+}

@@ -26,56 +26,14 @@
                 <button type="button" class="profile__add-btn"></button>
             </section>
             <section>
-                <ul class="elements">
-                    <li class="element">
-                        <img class="element__image" src="./images/el-01.jpg" alt="Фото мест">
-                        <div class="element__info">
-                            <p class="element__text">Карачаевск</p>
-                            <button type="button" class="element__like-btn"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="./images/el-02.jpg" alt="Фото мест">
-                        <div class="element__info">
-                            <p class="element__text">Гора Эльбрус</p>
-                            <button type="button" class="element__like-btn"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="./images/el-03.jpg" alt="Фото мест">
-                        <div class="element__info">
-                            <p class="element__text">Домбай</p>
-                            <button type="button" class="element__like-btn"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="./images/el-04.jpg" alt="Фото мест">
-                        <div class="element__info">
-                            <p class="element__text">Гора Эльбрус</p>
-                            <button type="button" class="element__like-btn"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="./images/el-05.jpg" alt="Фото мест">
-                        <div class="element__info">
-                            <p class="element__text">Домбай</p>
-                            <button type="button" class="element__like-btn"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="./images/el-06.jpg" alt="Фото мест">
-                        <div class="element__info">
-                            <p class="element__text">Карачаево-Черкессия</p>
-                            <button type="button" class="element__like-btn"></button>
-                        </div>
-                    </li>
-                </ul>
+                <!--Container-->
+                <ul class="elements"></ul>
             </section>
         </main>
         <footer class="footer">
             <p class="footer__text">&#169; 2022 Mesto Russia</p>
         </footer>
-        <!--Pop-up-->
+        <!--User pop-up-->
         <section class="pop-up">
             <div class="pop-up__window">
                 <button type="button" class="pop-up__close-btn"></button>
@@ -97,6 +55,46 @@
                 </form>
             </div>
         </section>
+        <!--Place pop-up-->
+        <section class="pop-up pop-up_type_place">
+            <div class="pop-up__window pop-up__window_type_place">
+                <button type="button" class="pop-up__close-btn pop-up__close-btn_type_place"></button>
+                <h2 class="pop-up__header pop-up__header_type_place">Новое место</h2>
+                <form class="pop-up__form pop-up__form_type_place" name="user">
+                    <input
+                        type="text"
+                        class="pop-up__input pop-up__input_type_title"
+                        name="name"
+                        placeholder="Название"
+                    >
+                    <input
+                        type="text"
+                        class="pop-up__input pop-up__input_type_link"
+                        name="job"
+                        placeholder="Ссылка на картинку"
+                    >
+                    <button type="submit" class="pop-up__submit-place">Создать</button>
+                </form>
+            </div>
+        </section>
+        <!--Image pop-up-->
+        <section class="pop-up pop-up_type_image">
+            <figure class="pop-up__figure">
+                <img class="pop-up__image" src="" alt="">
+                <figcaption class="pop-up__caption"></figcaption>
+            </figure>
+        </section>
+        <!--Card template-->
+        <template class="card-template">
+            <li class="element">
+                <button type="button" class="element__delete-btn"></button>
+                <img class="element__image" src="" alt="">
+                <div class="element__info">
+                    <p class="element__text"></p>
+                    <button type="button" class="element__like-btn"></button>
+                </div>
+            </li>
+        </template>
         <script src="./scripts/index.js"></script>
     </body>
 </html>
