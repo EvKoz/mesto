@@ -1,6 +1,7 @@
-.pop-up__image{
-  max-height: 540px;
+.pop-up__image {
+  height: 540px;
   min-width: 433px;
+  max-width: 816px;
   object-fit: cover;
   margin: 0;
 }

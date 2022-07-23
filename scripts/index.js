@@ -62,7 +62,8 @@ function renderCards() {
     cardElement.querySelector('.element__image').addEventListener('click', function (event) {
       popupImage.classList.toggle('pop-up_active')
       document.querySelector('.pop-up__image').src = item.link
-          })
+      document.querySelector('.pop-up__caption').textContent = item.name
+    })
     cardsContainer.append(cardElement)
   })
 }
@@ -79,7 +80,11 @@ function saveCard(event) {
   cardElement.querySelector('.element__delete-btn').addEventListener('click', function (event) {
     event.currentTarget.closest('.element').remove();
   })
-  cardElement.querySelector('.element__image').addEventListener('click', openImage)
+  cardElement.querySelector('.element__image').addEventListener('click', function (event) {
+    popupImage.classList.toggle('pop-up_active')
+    document.querySelector('.pop-up__image').src = cardElement.querySelector('.element__image').src
+    document.querySelector('.pop-up__caption').textContent = cardElement.querySelector('.element__text').textContent
+  })
   closePlacePopup();
   cardsContainer.prepend(cardElement);
   inputLink.value = '';
