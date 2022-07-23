@@ -4,3 +4,9 @@
   top: calc(50% - 270px);
   margin: 0;
 }
+
+@media (max-width: 910px) {
+  .pop-up__figure {
+    top: calc(50% - 150px);
+}
+}

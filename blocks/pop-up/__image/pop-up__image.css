@@ -1,7 +1,14 @@
 .pop-up__image {
   height: 540px;
-  min-width: 433px;
+  /*min-width: 433px;*/
   max-width: 816px;
   object-fit: cover;
   margin: 0;
+}
+
+@media (max-width: 910px) {
+  .pop-up__image {
+    height: 299px;
+    width: 240px;
+      }
 }
