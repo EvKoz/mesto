@@ -1,0 +1,8 @@
+.pop-up__figure {
+  /*min-width: 433px;
+  max-height: 540px;*/
+  display: inline-block;
+  position: relative;
+  top: calc(50% - 270px);
+  margin: 0;
+}

@@ -8,7 +8,7 @@
   background-color: transparent;
   position: absolute;
   top: -40px;
-  left: 440px;
+  right: -40px;
   cursor: pointer;
   background-size: cover;
 }

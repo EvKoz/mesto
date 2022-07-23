@@ -43,6 +43,8 @@ const placeTitle = document.querySelector('.element__text')
 const placeLink = document.querySelector('.element__image')
 const savePlaceButton = document.querySelector('.pop-up__submit-place')
 const deleteCardButton = document.querySelector('.element__delete-btn')
+const popupImage = document.querySelector('.pop-up_type_image')
+const closeImageButton = document.querySelector('.pop-up__close-btn_type_image')
 
 
 function renderCards() {
@@ -57,6 +59,10 @@ function renderCards() {
     cardElement.querySelector('.element__delete-btn').addEventListener('click', function (event) {
       event.currentTarget.closest('.element').remove();
     })
+    cardElement.querySelector('.element__image').addEventListener('click', function (event) {
+      popupImage.classList.toggle('pop-up_active')
+      document.querySelector('.pop-up__image').src = item.link
+          })
     cardsContainer.append(cardElement)
   })
 }
@@ -73,11 +79,12 @@ function saveCard(event) {
   cardElement.querySelector('.element__delete-btn').addEventListener('click', function (event) {
     event.currentTarget.closest('.element').remove();
   })
+  cardElement.querySelector('.element__image').addEventListener('click', openImage)
   closePlacePopup();
   cardsContainer.prepend(cardElement);
   inputLink.value = '';
   inputPlace.value = '';
-  }
+}
 
 renderCards()
 
@@ -111,9 +118,19 @@ function closePlacePopup() {
   popupPlace.classList.toggle('pop-up_active')
 }
 
+function openImage(event) {
+  popupImage.classList.toggle('pop-up_active')
+  popupImage.src = event.target.src
+}
+
+function closeImage() {
+  popupImage.classList.toggle('pop-up_active')
+}
+
 editUserButton.addEventListener('click', openUserPopup)
 closeUserButton.addEventListener('click', closeUserPopup)
 saveUserButton.addEventListener('click', saveUser)
 closePlaceButton.addEventListener('click', closePlacePopup)
 addPlaceButton.addEventListener('click', openPlacePopup)
-savePlaceButton.addEventListener('click', saveCard);
+savePlaceButton.addEventListener('click', saveCard)
+closeImageButton.addEventListener('click', closeImage)
