@@ -6,7 +6,6 @@ const inputJob = document.querySelector('.pop-up__input_type_job')
 const profileName = document.querySelector('.profile__name')
 const profileJob = document.querySelector('.profile__job')
 const userSaveButton = document.querySelector('.pop-up__submit-profile')
-
 const cardsContainer = document.querySelector('.elements')
 const cardTemplate = document.querySelector('.card-template').content
 const popupPlace = document.querySelector('.pop-up_type_place')
@@ -45,7 +44,7 @@ function renderCards() {
 
 function saveCard(event) {
   event.preventDefault();
-  const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
+  const cardElement = cardTemplate.cloneNode(true);
   cardElement.querySelector('.element__text').textContent = inputPlace.value
   cardElement.querySelector('.element__image').src = inputLink.value
   cardElement.querySelector('.element__image').alt = inputPlace.value
@@ -57,8 +56,8 @@ function saveCard(event) {
   })
   cardElement.querySelector('.element__image').addEventListener('click', function (event) {
     popupImage.classList.toggle('pop-up_active')
-    document.querySelector('.pop-up__image').src = cardElement.querySelector('.element__image').src
-    document.querySelector('.pop-up__caption').textContent = cardElement.querySelector('.element__text').textContent
+    document.querySelector('.pop-up__image').src = placeLink.src
+    document.querySelector('.pop-up__caption').textContent = placeTitle.textContent
   })
   closePlacePopup();
   cardsContainer.prepend(cardElement);
