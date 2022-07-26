@@ -23,7 +23,7 @@ const imageCloseButton = document.querySelector('.pop-up__close-btn_type_image')
 
 function renderCards() {
   initialCards.forEach(function (item) {
-    const cardElement = cardTemplate.cloneNode(true);
+    const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
     cardElement.querySelector('.element__text').textContent = item.name
     cardElement.querySelector('.element__image').src = item.link
     cardElement.querySelector('.element__image').alt = item.name
@@ -44,7 +44,7 @@ function renderCards() {
 
 function saveCard(event) {
   event.preventDefault();
-  const cardElement = cardTemplate.cloneNode(true);
+  const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
   cardElement.querySelector('.element__text').textContent = inputPlace.value
   cardElement.querySelector('.element__image').src = inputLink.value
   cardElement.querySelector('.element__image').alt = inputPlace.value
@@ -56,8 +56,8 @@ function saveCard(event) {
   })
   cardElement.querySelector('.element__image').addEventListener('click', function (event) {
     popupImage.classList.toggle('pop-up_active')
-    document.querySelector('.pop-up__image').src = placeLink.src
-    document.querySelector('.pop-up__caption').textContent = placeTitle.textContent
+    document.querySelector('.pop-up__image').src = cardElement.querySelector('.element__image').src
+    document.querySelector('.pop-up__caption').textContent = cardElement.querySelector('.element__text').textContent
   })
   closePlacePopup();
   cardsContainer.prepend(cardElement);
