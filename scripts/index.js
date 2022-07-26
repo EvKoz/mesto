@@ -68,11 +68,11 @@ function saveCard(event) {
 renderCards()
 
 function openUserPopup() {
-  popupUser.classList.toggle('pop-up_active')
+  popupUser.classList.add('pop-up_active')
 }
 
 function closeUserPopup() {
-  popupUser.classList.toggle('pop-up_active')
+  popupUser.classList.remove('pop-up_active')
 }
 
 function editUser() {
@@ -89,20 +89,20 @@ function saveUser(event) {
 }
 
 function openPlacePopup() {
-  popupPlace.classList.toggle('pop-up_active')
+  popupPlace.classList.add('pop-up_active')
 }
 
 function closePlacePopup() {
-  popupPlace.classList.toggle('pop-up_active')
+  popupPlace.classList.remove('pop-up_active')
 }
 
 function openImage(event) {
-  popupImage.classList.toggle('pop-up_active')
+  popupImage.classList.add('pop-up_active')
   popupImage.src = event.target.src
 }
 
 function closeImage() {
-  popupImage.classList.toggle('pop-up_active')
+  popupImage.classList.remove('pop-up_active')
 }
 
 userEditButton.addEventListener('click', editUser)
