@@ -14,7 +14,6 @@ const inputPlace = document.querySelector('.pop-up__input_type_title')
 const inputLink = document.querySelector('.pop-up__input_type_link')
 const placeTitle = document.querySelector('.element__text')
 const placeLink = document.querySelector('.element__image')
-const cardDeleteButton = document.querySelector('.element__delete-btn')
 const popupImage = document.querySelector('.pop-up_type_image')
 const imageCloseButton = document.querySelector('.pop-up__close-btn_type_image')
 const userForm = document.querySelector('.pop-up__form');
@@ -37,12 +36,13 @@ function saveUser(event) {
 
 function createCard(event) {
   event.preventDefault();
+  const cardDeleteButton = document.querySelector('.element__delete-btn')
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
   cardElement.querySelector('.element__text').textContent = inputPlace.value
   const cardImage = cardElement.querySelector('.element__image')
   cardImage.src = inputLink.value
   cardImage.alt = inputPlace.value
-  cardElement.querySelector('.element__like-btn').addEventListener('click', function (event) {
+  cardDeleteButton.addEventListener('click', function (event) {
     event.target.classList.toggle('element__like-btn_active');
   })
   cardElement.querySelector('.element__delete-btn').addEventListener('click', function (event) {
@@ -59,7 +59,7 @@ function createCard(event) {
   inputPlace.value = '';
 }
 
-function renderCards() {
+function renderCards(item) {
   initialCards.forEach(function (item) {
     const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
     cardElement.querySelector('.element__text').textContent = item.name
