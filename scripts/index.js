@@ -39,17 +39,18 @@ function createCard(event) {
   event.preventDefault();
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
   cardElement.querySelector('.element__text').textContent = inputPlace.value
-  cardElement.querySelector('.element__image').src = inputLink.value
-  cardElement.querySelector('.element__image').alt = inputPlace.value
+  const cardImage = cardElement.querySelector('.element__image')
+  cardImage.src = inputLink.value
+  cardImage.alt = inputPlace.value
   cardElement.querySelector('.element__like-btn').addEventListener('click', function (event) {
     event.target.classList.toggle('element__like-btn_active');
   })
   cardElement.querySelector('.element__delete-btn').addEventListener('click', function (event) {
     event.currentTarget.closest('.element').remove();
   })
-  cardElement.querySelector('.element__image').addEventListener('click', function (event) {
-    popupImage.classList.toggle('pop-up_active')
-    document.querySelector('.pop-up__image').src = cardElement.querySelector('.element__image').src
+  cardImage.addEventListener('click', function () {
+    openPopup(popupImage)
+    document.querySelector('.pop-up__image').src = cardImage.src
     document.querySelector('.pop-up__caption').textContent = cardElement.querySelector('.element__text').textContent
   })
   closePopup(popupPlace);
@@ -62,15 +63,16 @@ function renderCards() {
   initialCards.forEach(function (item) {
     const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
     cardElement.querySelector('.element__text').textContent = item.name
-    cardElement.querySelector('.element__image').src = item.link
-    cardElement.querySelector('.element__image').alt = item.name
+    const cardImage = cardElement.querySelector('.element__image')
+    cardImage.src = item.link
+    cardImage.alt = item.name
     cardElement.querySelector('.element__like-btn').addEventListener('click', function (event) {
       event.target.classList.toggle('element__like-btn_active');
     })
     cardElement.querySelector('.element__delete-btn').addEventListener('click', function (event) {
       event.currentTarget.closest('.element').remove();
     })
-    cardElement.querySelector('.element__image').addEventListener('click', function (event) {
+    cardImage.addEventListener('click', function (event) {
       popupImage.classList.toggle('pop-up_active')
       document.querySelector('.pop-up__image').src = item.link
       document.querySelector('.pop-up__caption').textContent = item.name
@@ -82,7 +84,7 @@ function renderCards() {
 renderCards()
 
 userEditButton.addEventListener('click', function () {
-  popupUser.classList.add('pop-up_active')
+  openPopup(popupUser)
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
 })
@@ -92,13 +94,13 @@ userCloseButton.addEventListener('click', function () {
 })
 
 placeCloseButton.addEventListener('click', function () {
-  popupPlace.classList.remove('pop-up_active');
-  inputLink.value = '';
-  inputPlace.value = '';
+  closePopup(popupPlace)
+  inputLink.value = ''
+  inputPlace.value = ''
 })
 
 placeAddButton.addEventListener('click', function () {
-  popupPlace.classList.add('pop-up_active')
+  openPopup(popupPlace)
 })
 
 imageCloseButton.addEventListener('click', function () {
