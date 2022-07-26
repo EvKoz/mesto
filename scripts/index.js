@@ -5,7 +5,6 @@ const inputName = document.querySelector('.pop-up__input_type_name')
 const inputJob = document.querySelector('.pop-up__input_type_job')
 const profileName = document.querySelector('.profile__name')
 const profileJob = document.querySelector('.profile__job')
-const userSaveButton = document.querySelector('.pop-up__submit-profile')
 const cardsContainer = document.querySelector('.elements')
 const cardTemplate = document.querySelector('.card-template').content
 const popupPlace = document.querySelector('.pop-up_type_place')
@@ -15,11 +14,11 @@ const inputPlace = document.querySelector('.pop-up__input_type_title')
 const inputLink = document.querySelector('.pop-up__input_type_link')
 const placeTitle = document.querySelector('.element__text')
 const placeLink = document.querySelector('.element__image')
-const placeSaveButton = document.querySelector('.pop-up__submit-place')
 const cardDeleteButton = document.querySelector('.element__delete-btn')
 const popupImage = document.querySelector('.pop-up_type_image')
 const imageCloseButton = document.querySelector('.pop-up__close-btn_type_image')
-
+const userForm = document.querySelector('.pop-up__form');
+const placeForm = document.querySelector('.pop-up__form_type_place');
 
 function renderCards() {
   initialCards.forEach(function (item) {
@@ -42,7 +41,7 @@ function renderCards() {
   })
 }
 
-function saveCard(event) {
+function createCard(event) {
   event.preventDefault();
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
   cardElement.querySelector('.element__text').textContent = inputPlace.value
@@ -93,6 +92,8 @@ function openPlacePopup() {
 }
 
 function closePlacePopup() {
+  inputLink.value = '';
+  inputPlace.value = '';
   popupPlace.classList.remove('pop-up_active')
 }
 
@@ -107,8 +108,8 @@ function closeImage() {
 
 userEditButton.addEventListener('click', editUser)
 userCloseButton.addEventListener('click', closeUserPopup)
-userSaveButton.addEventListener('click', saveUser)
+userForm.addEventListener('submit', saveUser)
 placeCloseButton.addEventListener('click', closePlacePopup)
 placeAddButton.addEventListener('click', openPlacePopup)
-placeSaveButton.addEventListener('click', saveCard)
+placeForm.addEventListener('submit', createCard)
 imageCloseButton.addEventListener('click', closeImage)
