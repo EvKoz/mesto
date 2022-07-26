@@ -81,11 +81,6 @@ function saveUser(event) {
   closePopup(popupUser);
 }
 
-function openImage(event) {
-  popupImage.classList.add('pop-up_active')
-  popupImage.src = event.target.src
-}
-
 userEditButton.addEventListener('click', function(){
   popupUser.classList.add('pop-up_active')
   inputName.value = profileName.textContent;
