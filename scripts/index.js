@@ -58,7 +58,7 @@ function createCard(event) {
     document.querySelector('.pop-up__image').src = cardElement.querySelector('.element__image').src
     document.querySelector('.pop-up__caption').textContent = cardElement.querySelector('.element__text').textContent
   })
-  closePlacePopup();
+  closePopup(popupPlace);
   cardsContainer.prepend(cardElement);
   inputLink.value = '';
   inputPlace.value = '';
@@ -66,35 +66,19 @@ function createCard(event) {
 
 renderCards()
 
-function openUserPopup() {
-  popupUser.classList.add('pop-up_active')
+function openPopup(elem) {
+  elem.classList.add('pop-up_active')
 }
 
-function closeUserPopup() {
-  popupUser.classList.remove('pop-up_active')
-}
-
-function editUser() {
-  openUserPopup()
-  inputName.value = profileName.textContent;
-  inputJob.value = profileJob.textContent;
+function closePopup(elem) {
+  elem.classList.remove('pop-up_active')
 }
 
 function saveUser(event) {
   event.preventDefault();
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
-  closeUserPopup();
-}
-
-function openPlacePopup() {
-  popupPlace.classList.add('pop-up_active')
-}
-
-function closePlacePopup() {
-  inputLink.value = '';
-  inputPlace.value = '';
-  popupPlace.classList.remove('pop-up_active')
+  closePopup(popupUser);
 }
 
 function openImage(event) {
@@ -102,14 +86,24 @@ function openImage(event) {
   popupImage.src = event.target.src
 }
 
-function closeImage() {
-  popupImage.classList.remove('pop-up_active')
-}
-
-userEditButton.addEventListener('click', editUser)
-userCloseButton.addEventListener('click', closeUserPopup)
+userEditButton.addEventListener('click', function(){
+  popupUser.classList.add('pop-up_active')
+  inputName.value = profileName.textContent;
+  inputJob.value = profileJob.textContent;
+})
+userCloseButton.addEventListener('click', function () {
+  closePopup(popupUser)
+})
 userForm.addEventListener('submit', saveUser)
-placeCloseButton.addEventListener('click', closePlacePopup)
-placeAddButton.addEventListener('click', openPlacePopup)
+placeCloseButton.addEventListener('click', function () {
+  popupPlace.classList.remove('pop-up_active');
+  inputLink.value = '';
+  inputPlace.value = '';
+})
+placeAddButton.addEventListener('click', function(){
+  popupPlace.classList.add('pop-up_active')
+})
 placeForm.addEventListener('submit', createCard)
-imageCloseButton.addEventListener('click', closeImage)
+imageCloseButton.addEventListener('click', function () {
+  closePopup(popupImage)
+})
