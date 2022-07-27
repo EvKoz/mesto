@@ -52,6 +52,7 @@ function createCard(event) {
     openPopup(popupImage)
     document.querySelector('.pop-up__image').src = cardImage.src
     document.querySelector('.pop-up__caption').textContent = cardElement.querySelector('.element__text').textContent
+    document.querySelector('.pop-up__image').alt = cardElement.querySelector('.element__text').textContent
   })
   closePopup(popupPlace);
   cardsContainer.prepend(cardElement);
@@ -76,6 +77,7 @@ function renderCards(item) {
       popupImage.classList.toggle('pop-up_active')
       document.querySelector('.pop-up__image').src = item.link
       document.querySelector('.pop-up__caption').textContent = item.name
+      document.querySelector('.pop-up__image').alt = item.name
     })
     cardsContainer.append(cardElement)
   })
