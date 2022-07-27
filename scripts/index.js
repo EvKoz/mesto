@@ -34,7 +34,7 @@ function saveUser(event) {
   closePopup(popupUser);
 }
 
-function createCard(event) {
+function handleAddCardFormSubmit(event) {
   event.preventDefault();
   const cardDeleteButton = document.querySelector('.element__delete-btn')
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
@@ -110,4 +110,4 @@ imageCloseButton.addEventListener('click', function () {
 })
 
 userForm.addEventListener('submit', saveUser)
-placeForm.addEventListener('submit', createCard)
+placeForm.addEventListener('submit', handleAddCardFormSubmit)
