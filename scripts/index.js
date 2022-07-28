@@ -27,8 +27,8 @@ function closePopup(elem) {
   elem.classList.remove('pop-up_active')
 }
 
-function saveUser(event) {
-  event.preventDefault();
+function saveUser(evt) {
+  evt.preventDefault();
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
   closePopup(popupUser);
@@ -60,7 +60,7 @@ function handleAddCardFormSubmit(event) {
   inputPlace.value = '';
 }
 
-function renderCards(item) {
+function renderCards() {
   initialCards.forEach(function (item) {
     const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
     cardElement.querySelector('.element__text').textContent = item.name
