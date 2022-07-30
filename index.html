@@ -60,17 +60,17 @@
             <div class="pop-up__window pop-up__window_type_place">
                 <button type="button" class="pop-up__close-btn pop-up__close-btn_type_place"></button>
                 <h2 class="pop-up__header pop-up__header_type_place">Новое место</h2>
-                <form class="pop-up__form pop-up__form_type_place" name="user">
+                <form class="pop-up__form pop-up__form_type_place" name="place">
                     <input
                         type="text"
                         class="pop-up__input pop-up__input_type_title"
-                        name="name"
+                        name="place"
                         placeholder="Название"
                     >
                     <input
                         type="text"
                         class="pop-up__input pop-up__input_type_link"
-                        name="job"
+                        name="link"
                         placeholder="Ссылка на картинку"
                     >
                     <button type="submit" class="pop-up__submit-place">Создать</button>
@@ -89,7 +89,12 @@
         <template class="card-template">
             <li class="element">
                 <button type="button" class="element__delete-btn"></button>
-                <img class="element__image" src="#" alt="" onerror="this.src='./images/error.jpg';">
+                <img
+                    class="element__image"
+                    src="#"
+                    alt=""
+                    onerror="this.src='./images/error.jpg';"
+                >
                 <div class="element__info">
                     <p class="element__text"></p>
                     <button type="button" class="element__like-btn"></button>
