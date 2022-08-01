@@ -11,7 +11,7 @@ const userPopup = document.querySelector('.pop-up')
 const userCloseButton = document.querySelector('.pop-up__close-btn')
 
 userEditButton.addEventListener('click', function () {
-  editUser()
+  openPopupProfileEdit()
 })
 
 userCloseButton.addEventListener('click', function () {
@@ -23,7 +23,7 @@ const profileJob = document.querySelector('.profile__job')
 const inputName = document.querySelector('.pop-up__input_type_name')
 const inputJob = document.querySelector('.pop-up__input_type_job')
 
-function editUser() {
+function openPopupProfileEdit() {
   openPopup(userPopup)
   inputName.value = profileName.textContent
   inputJob.value = profileJob.textContent
@@ -31,14 +31,14 @@ function editUser() {
 
 const userForm = document.querySelector('.pop-up__form')             //сохранение пользователя
 
-function userHandler(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault()
   profileName.textContent = inputName.value
   profileJob.textContent = inputJob.value
   closePopup(userPopup)
 }
 
-userForm.addEventListener('submit', userHandler)
+userForm.addEventListener('submit', handleProfileFormSubmit)
 
 placeAddButton = document.querySelector('.profile__add-btn')         //открытие и закрытие попапа карточки
 placeCloseButton = document.querySelector('.pop-up__close-btn_type_place')
@@ -58,7 +58,6 @@ const placeInputLink = document.querySelector('.pop-up__input_type_link')
 const cardsContainer = document.querySelector('.elements')
 const popupImage = document.querySelector('.pop-up_type_image')
 
-
 function createCard(name, link) {
   const cardTemplate = document.querySelector('.card-template').content.querySelector('.element').cloneNode(true)
   cardTemplate.querySelector('.element__text').textContent = name
@@ -67,9 +66,14 @@ function createCard(name, link) {
   cardTemplate.querySelector('.element__like-btn').addEventListener('click', clickLike)
   cardTemplate.querySelector('.element__delete-btn').addEventListener('click', deleteCard)
   cardTemplate.querySelector('.element__image').addEventListener('click', openImage)
-  document.querySelector('.pop-up__close-btn_type_image').addEventListener('click', closeImage)
-  cardsContainer.appendChild(cardTemplate)
+  cardsContainer.prepend(cardTemplate)
 }
+
+const closeImagePopupButton =                                        //закрытие попапа с изображением
+  document.querySelector('.pop-up__close-btn_type_image')
+closeImagePopupButton.addEventListener('click', function () {
+  closePopup(popupImage)
+})
 
 function clickLike(event) {                                          //постановка лайка
   event.target.classList.toggle('element__like-btn_active')
@@ -83,11 +87,7 @@ function openImage(event) {                                           //откр
   document.querySelector('.pop-up__image').src = event.currentTarget.closest('.element__image').src
   document.querySelector('.pop-up__caption').textContent = event.currentTarget.closest('.element__image').alt
   document.querySelector('.pop-up__image').alt = event.currentTarget.closest('.element__image').alt
-  popupImage.classList.toggle('pop-up_active')
-}
-
-function closeImage(){
-  closePopup(popupImage)
+  openPopup(popupImage)
 }
 
 function addCard() {                                                 //добавление карточки в верстку
@@ -103,7 +103,6 @@ function addCard() {                                                 //доба�
 function renderInitialCards() {                                      //обработка массива
   initialCards.forEach(item => createCard(item.name, item.link))
 }
-
 
 addCard()
 renderInitialCards()
