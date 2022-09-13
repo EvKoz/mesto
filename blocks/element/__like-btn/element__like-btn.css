@@ -10,7 +10,7 @@
   display: flex;
   flex-basis: 25px;
   align-self: center;
-}
+  }
 
 .element__like-btn:hover {
   opacity: 0.6;

@@ -69,6 +69,20 @@ function createCard(name, link) {
   cardsContainer.prepend(cardTemplate)
 }
 
+function addCard() {                                                 //добавление карточки в верстку
+  placeForm.addEventListener('submit', function (event) {
+    event.preventDefault()
+    createCard(placeInputName.value, placeInputLink.value)
+    closePopup(placePopup)
+    placeInputName.value = ''
+    placeInputLink.value = ''
+  })
+}
+
+function renderInitialCards() {                                      //обработка массива
+  initialCards.forEach(item => createCard(item.name, item.link))
+}
+
 const closeImagePopupButton =                                        //закрытие попапа с изображением
   document.querySelector('.pop-up__close-btn_type_image')
 closeImagePopupButton.addEventListener('click', function () {
@@ -88,20 +102,6 @@ function openImage(event) {                                           //откр
   document.querySelector('.pop-up__caption').textContent = event.currentTarget.closest('.element__image').alt
   document.querySelector('.pop-up__image').alt = event.currentTarget.closest('.element__image').alt
   openPopup(popupImage)
-}
-
-function addCard() {                                                 //добавление карточки в верстку
-  placeForm.addEventListener('submit', function (event) {
-    event.preventDefault()
-    createCard(placeInputName.value, placeInputLink.value)
-    closePopup(placePopup)
-    placeInputName.value = ''
-    placeInputLink.value = ''
-  })
-}
-
-function renderInitialCards() {                                      //обработка массива
-  initialCards.forEach(item => createCard(item.name, item.link))
 }
 
 addCard()
